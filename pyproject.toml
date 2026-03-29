@@ -1,0 +1,67 @@
+# Copyright © 2020-2026 Inoni Limited Liability Company. All rights reserved.
+# Created by: Corey Post
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "murphy-confidence"
+version = "0.1.0"
+description = "Multi-Factor Generative-Deterministic Confidence (MFGC) scoring and safety gates for AI agents. Zero dependencies."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Corey Post", email = "contact@inoni.com" }]
+maintainers = [{ name = "Corey Post", email = "contact@inoni.com" }]
+requires-python = ">=3.10"
+dependencies = []
+keywords = [
+    "ai safety",
+    "confidence scoring",
+    "gates",
+    "autonomous agent",
+    "murphy",
+    "mfgc",
+    "human-in-the-loop",
+    "guardrails",
+    "llm",
+    "ai agents",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Security",
+    "Topic :: System :: Monitoring",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage      = "https://github.com/IKNOWINOT/murphy-confidence"
+Documentation = "https://github.com/IKNOWINOT/murphy-confidence#readme"
+Repository    = "https://github.com/IKNOWINOT/murphy-confidence"
+"Issue Tracker" = "https://github.com/IKNOWINOT/murphy-confidence/issues"
+Changelog     = "https://github.com/IKNOWINOT/murphy-confidence/blob/main/CHANGELOG.md"
+Sponsor       = "https://github.com/sponsors/IKNOWINOT"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["murphy_confidence*"]
+
+[tool.setuptools.package-data]
+"murphy_confidence" = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

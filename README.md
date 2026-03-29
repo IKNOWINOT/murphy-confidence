@@ -294,23 +294,22 @@ A simple `if confidence > 0.7: proceed` has four failure modes that
 
 ## Part of Murphy System
 
-`murphy-confidence` is extracted from the
-[Murphy System](https://github.com/IKNOWINOT/Murphy-System) — a full
-autonomous AI orchestration platform featuring:
+`murphy-confidence` was extracted from
+[Murphy System](https://github.com/IKNOWINOT/Murphy-System), an autonomous
+AI orchestration platform. Inside Murphy, every agent decision — from
+executing a campaign to deploying code — passes through this confidence gate
+before it's allowed to act.
 
-- 🧠 **Multi-agent architecture** — CEO Branch, campaign orchestrator, 90+
-  platform connectors
-- 🛡️ **HITL autonomy controller** — policy-based arm/disarm with graduation
-  from supervised to autonomous operation
-- 🔄 **Self-healing immune engine** — detects failures, remembers them,
-  prevents recurrence
-- 📡 **Event backbone** — production-grade pub/sub with circuit breakers,
-  dead letter queue, and exponential backoff retry
-- 🏭 **Industrial connectors** — OPC-UA, BACnet, SCADA adapters
+We extracted it because the gating problem is universal: **if you're building
+any AI agent that takes real-world actions, you need this layer.** A confidence
+gate stops your agent from acting when it shouldn't and lets it act when it
+can — with an auditable score behind every decision.
 
-**murphy-confidence is the gating layer that every decision in Murphy
-passes through.**  If you find this library useful, check out the full
-system at [github.com/IKNOWINOT/Murphy-System](https://github.com/IKNOWINOT/Murphy-System).
+> ⚠️ Murphy System is currently beta software. We're being honest about that
+> so you can set expectations accordingly.
+
+If you find this library useful, check out the full system at
+[github.com/IKNOWINOT/Murphy-System](https://github.com/IKNOWINOT/Murphy-System).
 
 ---
 

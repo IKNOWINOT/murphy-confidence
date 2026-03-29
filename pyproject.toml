@@ -15,6 +15,9 @@ authors = [{ name = "Corey Post", email = "contact@inoni.com" }]
 maintainers = [{ name = "Corey Post", email = "contact@inoni.com" }]
 requires-python = ">=3.10"
 dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
 keywords = [
     "ai safety",
     "confidence scoring",

@@ -5,7 +5,7 @@
 
 # murphy-confidence
 
-**Should your AI agent act? `murphy-confidence` answers that question with math, not vibes.**
+**A structured way to decide whether your AI agent should act — using a weighted formula instead of a single threshold.**
 
 [![PyPI version](https://img.shields.io/pypi/v/murphy-confidence?color=blue&label=PyPI)](https://pypi.org/project/murphy-confidence/)
 [![Python versions](https://img.shields.io/pypi/pyversions/murphy-confidence)](https://pypi.org/project/murphy-confidence/)
@@ -22,23 +22,24 @@ Zero dependencies · Pure Python 3.10+ · `pip install murphy-confidence`
 
 ## The problem
 
-Every AI agent framework gives you a way to *call* tools.  None of them give
-you a principled way to decide *whether* to call them.
+Most AI agent frameworks give you a way to *call* tools, but deciding
+*whether* to call them is often left as an exercise for the developer.
 
-You end up with one of:
-- **A hardcoded threshold** — `if confidence > 0.7: execute()` — no phase
-  awareness, no hazard weighting, no audit trail
-- **A vibe check** — asking the LLM "are you sure?" and hoping it says no
-  when it should
-- **Nothing** — just letting the agent do whatever it calculates and hoping
-  for the best
+Common approaches include:
+- **A hardcoded threshold** — `if confidence > 0.7: execute()` — simple and
+  effective for many cases, but doesn't account for phase awareness, hazard
+  weighting, or audit trails
+- **An LLM self-check** — asking the model "are you sure?" — which can work
+  but is hard to make consistent and auditable
+- **No gating at all** — acceptable for low-risk actions, but risky when
+  automating actions that touch real data, money, or people
 
-When you're automating actions that touch real data, real money, or real
-people, none of those options are acceptable.
+If you've run into the limits of these approaches, `murphy-confidence` offers
+a more structured alternative.
 
 ---
 
-## The solution
+## What this library does
 
 `murphy-confidence` implements the **Multi-Factor Generative-Deterministic
 Confidence (MFGC)** formula:
@@ -276,10 +277,10 @@ else:
 
 ---
 
-## Why not just use a threshold?
+## How it compares to a simple threshold
 
-A simple `if confidence > 0.7: proceed` has four failure modes that
-`murphy-confidence` fixes:
+A simple `if confidence > 0.7: proceed` works well for many use cases.
+Here's what `murphy-confidence` adds on top:
 
 | Problem | Simple threshold | murphy-confidence |
 |---------|-----------------|-------------------|
@@ -300,15 +301,16 @@ AI orchestration platform. Inside Murphy, every agent decision — from
 executing a campaign to deploying code — passes through this confidence gate
 before it's allowed to act.
 
-We extracted it because the gating problem is universal: **if you're building
-any AI agent that takes real-world actions, you need this layer.** A confidence
-gate stops your agent from acting when it shouldn't and lets it act when it
-can — with an auditable score behind every decision.
+We extracted it as a standalone library because confidence gating is a common
+need across AI agent projects. Whether it's the right fit for yours depends
+on your use case — we'd love to hear how you're approaching the problem.
 
-> ⚠️ Murphy System is currently beta software. We're being honest about that
-> so you can set expectations accordingly.
+> ⚠️ **Maturity note**: This library is at v0.1.0. The core formula and gate
+> system are tested and working, but the API may evolve based on community
+> feedback. Murphy System itself is beta software.
 
-If you find this library useful, check out the full system at
+If you find this library useful or have ideas for improvement, check out the
+full system at
 [github.com/IKNOWINOT/Murphy-System](https://github.com/IKNOWINOT/Murphy-System).
 
 ---
@@ -340,12 +342,16 @@ If you find this library useful, check out the full system at
 
 ---
 
-## Community
+## Community & feedback
+
+We're actively looking for feedback on the API, the formula weights, and
+real-world use cases. If something doesn't work for your scenario, we want to
+know.
 
 - 💬 [Discussions](https://github.com/IKNOWINOT/murphy-confidence/discussions)
   — questions, ideas, show-and-tell
-- 🐛 [Issues](https://github.com/IKNOWINOT/murphy-confidence/issues) — bugs
-  and feature requests
+- 🐛 [Issues](https://github.com/IKNOWINOT/murphy-confidence/issues) — bugs,
+  feature requests, and suggestions
 - 🤝 [Contributing](CONTRIBUTING.md) — how to contribute
 - ❤️ [Sponsor](https://github.com/sponsors/IKNOWINOT) — support the project
 

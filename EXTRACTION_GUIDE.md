@@ -120,7 +120,7 @@ After ~2 minutes, `pip install murphy-confidence` will work worldwide.
 ### Hacker News — Show HN
 
 Title:
-> Show HN: murphy-confidence – MFGC confidence scoring and safety gates for AI agents (zero deps)
+> Show HN: murphy-confidence – Structured confidence scoring and safety gates for AI agents (zero deps)
 
 Opening paragraph:
 > I extracted the confidence gating layer from my autonomous AI orchestration system (Murphy System) into a standalone zero-dependency Python library. The formula C(t) = w_g·G(x) + w_d·D(x) − κ·H(x) weights generative quality, domain determinism, and hazard with phase-locked schedules that make the engine progressively stricter as execution approaches. In other words: same inputs, different strictness at brainstorm vs. execute.
@@ -134,7 +134,7 @@ Post at: https://news.ycombinator.com/submit
 - **r/Python** — focus on the zero-dependency, pure-stdlib angle
 
 Post title template:
-> I built a math-based confidence gate for AI agents so they know when NOT to act [python, zero deps]
+> murphy-confidence — a structured confidence gate for AI agents (Python, zero deps, feedback welcome)
 
 ### Dev.to / Hashnode
 

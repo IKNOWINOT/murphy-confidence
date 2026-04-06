@@ -36,7 +36,8 @@ C(t) = w_g · G(x) + w_d · D(x) − κ · H(x)
 
 **Key insight**: as execution approaches, the formula shifts weight *away* from
 the LLM's generative quality and *toward* deterministic domain knowledge —
-because by EXECUTE phase, you should be relying on facts, not vibes.
+because by EXECUTE phase, you should be relying on facts and deterministic checks,
+not generative output alone.
 
 ---
 
@@ -209,5 +210,6 @@ In the full system, the `ConfidenceEngine` is wired to:
   to trigger recovery workflows
 
 The standalone `murphy-confidence` package exposes the scoring engine and
-gate system so any AI project can benefit from principled confidence gating
-without adopting the full Murphy System.
+gate system so any AI project can benefit from structured confidence gating
+without adopting the full Murphy System.  We welcome feedback on how the
+formula and gate design can be improved for different use cases.
